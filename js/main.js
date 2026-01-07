@@ -9,14 +9,14 @@ window._wpemojiSettings = {
     };
 
     var mytheme_urls = {
-		 theme_base_url:'https://kidslifedev.wpengine.com/wp-content/themes/kidslife/'
- 		,framework_base_url:'https://kidslifedev.wpengine.com/wp-content/themes/kidslife/framework/'
- 		,ajaxurl:'https://kidslifedev.wpengine.com/wp-admin/admin-ajax.php'
- 		,url:'https://kidslifedev.wpengine.com'
+		 theme_base_url:'./'
+ 		,framework_base_url:'./'
+ 		,ajaxurl:'#'
+ 		,url:'#'
  		,scroll:'disable'
  		,stickynav:'enable'
  		,is_admin:''
- 		,skin:'turquoise'
+ 		,skin:'orange'
  		,layout:'wide'
  		,isResponsive:'enable'
  		,layout_pattern:''

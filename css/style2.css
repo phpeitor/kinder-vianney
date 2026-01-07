@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+
+::selection{background-color:#008c99;}
+
+/*----------------------------
+PRIMARY COLOR
+-----------------------------*/
+
+/**font color**/
+
+a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, footer .widget ul li:before, footer .widget.widget_text ul li a:hover, footer .widget_recent_entries ul li:hover h6 a, ul.tweet_list li a, .dt-sc-contact-info a:hover, footer .dt-sc-contact-info span, .mailchimp-form span.fa, .audio-list h5 a:hover, .author-description h5 a:hover, .events-list h2 a:hover, h5.dt-sc-toggle-accordion a:hover, h5.dt-sc-toggle-accordion.active a, .dt-sc-team:hover .team-details h4, .portfolio-detail h5 a:hover, .highlight, ul.dt-sc-tabs-frame li a.current, ul.dt-sc-tabs li a.current, .entry-title h3, .pagination ul li a, .pagination .next-post a, .pagination .prev-post a, .summary p.price span, ul.dt-sc-tabs-vertical-frame li a.current, .dt-sc-toggle-frame h5 a:hover, .dt-sc-toggle-frame h5.active a, h5.dt-sc-toggle a:hover, h5.dt-sc-toggle.active a, ul.dt-sc-social-icons li a:hover, #main-menu .megamenu-child-container .widget ul.product_list_widget li a:hover, #main-menu .megamenu-child-container .widget ul.product_list_widget li span.amount, .product-details h5 a:hover, .product-details .price, ul.products li:hover .product-details h5 a, .dt-sc-callout-box.with-icon.type2 .icon span, .dt-sc-callout-box.type4 .icon span, .dt-sc-callout-box.type1:hover .icon span, .dt-sc-callout-box.type5:hover .icon span, .dt-sc-callout-box.type3:hover .icon span, .fullwidth-section.dark-bg .entry-title h3 a:hover, .fullwidth-section.light-bg .entry-title h3 a, .widget ul li a:hover, .fullwidth-section.dark-bg h1 a:hover, .fullwidth-section.dark-bg h2 a:hover, .fullwidth-section.dark-bg h3 a:hover, .fullwidth-section.dark-bg h4 a:hover, .fullwidth-section.dark-bg h5 a:hover, .fullwidth-section.dark-bg h6 a:hover, .fullwidth-section.dark-bg .format-audio .entry-title h3 a:hover, .widget.widget_categories ul li a, .dt-sc-button-outlined:hover, .page-link a{color:#008c99;}
+
+
+/**background color**/
+
+.breadcrumb-section, .copyright, .widget .mailchimp-form input[type="submit"], .dt-sc-button, .dt-sc-music-audio, .dt-sc-testimonial blockquote, h5.dt-sc-toggle-accordion.active:before, .dt-sc-testimonial-carousel-wrapper .carousel-arrows a:hover, .entry-meta .date, .entry-meta .comments, .entry-meta .entry_format, .dt-sc-ico-content.type3 .icon, .pagination ul li a:hover, .pagination .next-post a:hover, .pagination .prev-post a:hover, form.cart input[type="button"], th, h5.dt-sc-toggle.active:before, .dt-sc-class-hours h2, .dt-sc-titled-box h4.dt-sc-titled-box-title, .mean-container a.meanmenu-reveal, .mean-nav, header ul.dt-sc-social-icons li a:after, .dt-menu-toggle, .bx-controls-direction a.bx-prev, .bx-controls-direction a.bx-next, input[type="submit"], button, input[type="button"], button[type=submit], .onsale, blockquote, .dt-sc-callout-box.type4, .dt-sc-callout-box.type1 .icon, .dt-sc-callout-box.type5 .icon, .dt-sc-callout-box.with-icon.type2:hover .icon, .dt-sc-callout-box.type3 .icon, .dt-sc-ico-content.type2 .icon span, .skin-color, .dt-sc-sorting-container a, .widget .tagcloud a, .dt-sc-sorting-container a, ul.dt-sc-tabs li a, ul.dt-sc-tabs-frame li a, ul.dt-sc-tabs-vertical-frame li a, .ribbon-left, .dt-sc-title:after, .dt-sc-colored-box, .add_to_wishlist, .woocommerce-tabs ul.tabs li a, .woocommerce-MyAccount-navigation ul > li > a, ul.products li .product-details .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistexistsbrowse a, ul.products li .product-details .yith-wcwl-wishlistaddedbrowse a, .return-to-shop a, .widget.flickrbox .flickr-widget div, .wishlist_table .add_to_cart, .tribe-events-calendar th, #tribe-bar-form .tribe-bar-submit input[type="submit"], .tribe-events-calendar td.tribe-events-present div[id*="tribe-events-daynum-"], .tribe-events-calendar td.tribe-events-present div[id*="tribe-events-daynum-"] > a, #tribe-bar-form .tribe-bar-submit input[type="submit"], .tribe-events-sub-nav li a, .tribe-events-read-more, #tribe-events-content .tribe-events-tooltip h4, .widget .tribe-mini-calendar-event .list-date, .tribe-mini-calendar-grid-wrapper .tribe-mini-calendar thead.tribe-mini-calendar-nav div, .dt-sc-pr-tb-col, .dt-sc-event-container .dt-sc-event-thumb .event-price, .dt-sc-button-outlined span, .sticky .featured-post, .featured-post, .page-link a:hover, .wc-proceed-to-checkout .checkout-button, .header5#header #menu-container .container, #header.header5 .is-sticky #menu-container, .header-more-info a.cart-info {background-color:#008c99;}
+
+.image-overlay{background:rgba(24, 151, 163, 0.9);}
+
+.dt-sc-ico-content.type1 .dt-sc-icon-overlay{background:rgba(0, 140, 153, 0.8);}
+
+ul.products li .image-overlay{background:rgba(0, 140, 153, 0.5);}
+
+.bx-pager-item a.active, .bx-pager-item a:hover, .fullwidth-section input[type=submit], .dt-sc-pr-tb-col .dt-sc-tb-header .dt-sc-price, .dt-sc-pr-tb-col .dt-sc-buy-now .dt-sc-button{background-color:#015057;}
+
+.dt-sc-pr-tb-col .dt-sc-buy-now .dt-sc-button:hover{background:#013c41;}
+
+
+
+/**background image**/
+
+
+
+/**border color**/
+
+.entry-meta .date:after, .entry-meta .comments:after, .entry-meta .entry_format:after, .dt-sc-testimonial blockquote:after, .ribbon-left:after{border-color:#008c99 transparent transparent;}
+
+.entry-meta	.blog-author, .entry-thumb, .pagination ul li a, .pagination .next-post a, .pagination .prev-post a, .images img, footer .widget_recent_entries ul li:hover img, .widget .mailchimp-form input[type="submit"], .dt-sc-callout-box.type1 .icon, .dt-sc-callout-box.type5 .icon, .dt-sc-callout-box.with-icon.type2:hover .icon, .dt-sc-callout-box.type3 .icon, .dt-sc-ico-content.type1:hover .icon .icon-outer, .dt-sc-ico-content.type2 .icon span, .dt-sc-testimonial-carousel-wrapper .carousel-arrows a:hover, .dt-sc-callout-box.with-icon.type2 .icon, .dt-sc-callout-box.type3:hover .icon, .ribbon-left:before, #primary.with-left-sidebar .dt-sc-one-half .entry-meta .ribbon-left:before, #primary.with-right-sidebar .dt-sc-one-half .entry-meta .ribbon-left:before, .format-audio .entry-details, .dt-sc-button-outlined:hover, .entry-details.has-no-post-thumbnail{border-color:#008c99;}
+
+.ribbon-left:before{border-right:0 solid; border-left:10px solid rgba(0,0,0,0);}
+
+#primary.with-left-sidebar .dt-sc-one-half .entry-meta .ribbon-left:before, #primary.with-right-sidebar .dt-sc-one-half .entry-meta .ribbon-left:before{border-left:8px solid rgba(0,0,0,0);}
+
+.dt-sc-callout-box.type1, .dt-sc-callout-box.type3, .dt-sc-pullquote1, .dt-sc-pullquote5, .onsale:after{border-left-color:#008c99;}
+
+.onsale:before{border-right-color:#008c99;}
+
+.dt-sc-pullquote6, .dt-sc-event-container .dt-sc-event-thumb .event-price:before{border-top-color:#008c99;}
+
+a.highlight:hover, .portfolio-title p a:hover{border-bottom-color:#008c99;}
+
+.fullwidth-section.skin-color .dt-sc-ico-content.type2:hover .icon span, .dt-sc-ico-content.type2:hover .icon span{border-color:#80c6cc;}
+
+h5.dt-sc-toggle-accordion.active:before, h5.dt-sc-toggle.active:before{border-color:#d2dec3;}
+
+.dt-sc-sorting-container a, .widget .tagcloud a, .dt-sc-colored-box{border-bottom-color:#02747f;}
+
+.dt-sc-colored-box{border-top-color:#02747f;}
+
+.dt-sc-pr-tb-col, .dt-sc-pr-tb-col .dt-sc-tb-content li{border-color:#02747f;}
+
+
+/*----------------------------
+SECONDARY COLOR
+-----------------------------*/
+
+/**font color**/
+
+.widget_categories ul li a span{color:#cf571b;}
+
+/**background color**/
+
+.dt-sc-sorting-container a:hover, .dt-sc-sorting-container .active-sort, ul.dt-sc-tabs-frame li a.current, .dt-sc-tabs-container ul.dt-sc-tabs li a.current, ul.dt-sc-tabs-vertical-frame li a.current, .widget .tagcloud a:hover, .dt-sc-callout-box.type1 .dt-sc-button, .dt-sc-callout-box.type5 .dt-sc-button, .dt-sc-callout-box.type2 .dt-sc-button, #wp-calendar caption, .woocommerce-tabs ul.tabs > li.active > a, .woocommerce-MyAccount-navigation ul > li.is-active > a {background-color:#cf571b;}
+
+/**border color**/
+
+.dt-sc-callout-box.type5{border-left-color:#cf571b;}
+
+.dt-sc-sorting-container a:hover, .dt-sc-sorting-container .active-sort, .widget .tagcloud a:hover{border-bottom-color:#ae4612;}
+
+
+
+
+
