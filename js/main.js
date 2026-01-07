@@ -1,12 +1,27 @@
 window._wpemojiSettings = {
-        "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/",
-        "ext": ".png",
-        "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/",
-        "svgExt": ".svg",
-        "source": {
-          "concatemoji": ".\/js\/wp-emoji-release.min.js?ver=4bc7e34cee88072655e34415f8630486"
-        }
-      };
+    "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/",
+    "ext": ".png",
+    "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/",
+    "svgExt": ".svg",
+    "source": {
+        "concatemoji": ".\/js\/wp-emoji-release.min.js?ver=4bc7e34cee88072655e34415f8630486"
+    }
+    };
+
+    var mytheme_urls = {
+		 theme_base_url:'https://kidslifedev.wpengine.com/wp-content/themes/kidslife/'
+ 		,framework_base_url:'https://kidslifedev.wpengine.com/wp-content/themes/kidslife/framework/'
+ 		,ajaxurl:'https://kidslifedev.wpengine.com/wp-admin/admin-ajax.php'
+ 		,url:'https://kidslifedev.wpengine.com'
+ 		,scroll:'disable'
+ 		,stickynav:'enable'
+ 		,is_admin:''
+ 		,skin:'turquoise'
+ 		,layout:'wide'
+ 		,isResponsive:'enable'
+ 		,layout_pattern:''
+	};
+
       /*! This file is auto-generated */
       ! function(s, n) {
         var o, i, e;
