@@ -322,9 +322,6 @@ document.addEventListener("DOMContentLoaded", function () {
   menuInner.appendChild(ulSocial);
   menuContainer.appendChild(menuInner);
 
-  // =========================
-  // INSERTAR EN DOM
-  // =========================
   header.appendChild(headerContainer);
   header.appendChild(menuContainer);
 
@@ -335,8 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (copyrightEl) {
 
     const currentYear = new Date().getFullYear();
-
-    // Limpiamos por si hay contenido previo
     copyrightEl.innerHTML = "";
 
     const container = document.createElement("div");
