@@ -257,10 +257,10 @@ document.addEventListener("DOMContentLoaded", function () {
   topRight.innerHTML = `
     <p class="dt-sc-contact-info">
       <span class="fa fa-user"></span>
-      <a href="mailto:admin@kidslife.com">admin@kidslife.com</a>
+      <a href="mailto:contato@institucioneducativavianney.com">contato@institucioneducativavianney.com</a>
     </p>
     <p class="dt-sc-contact-info">
-      <span class="fa fa-phone"></span>+91 1234567890
+      <span class="fa fa-phone"></span>942890820
     </p>
   `;
 
