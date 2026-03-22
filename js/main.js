@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="mailto:info@institucioneducativavianney.com">info@institucioneducativavianney.com</a>
     </p>
     <p class="dt-sc-contact-info">
-      <span class="fa fa-map"></span>
+      <span class="fa fa-map-marker"></span>
       Calle Los Jazmines 206 Urb. Federico Villarreal, Chiclayo
     </p>
     <p class="dt-sc-contact-info">
