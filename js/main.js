@@ -206,8 +206,16 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   const socialIcons = [
-    { icon: "facebook", title: "Facebook" },
-    { icon: "instagram", title: "Instagram" },
+    {
+      icon: "facebook",
+      title: "Facebook",
+      href: "https://www.facebook.com/colegiosanjuanmariavianney",
+    },
+    {
+      icon: "instagram",
+      title: "Instagram",
+      href: "https://www.instagram.com/explore/",
+    },
   ];
 
   // =========================
@@ -313,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
   socialIcons.forEach((social) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <a class="dt-sc-tooltip-top ${social.icon}" href="#" title="${social.title}" target="_blank">
+      <a class="dt-sc-tooltip-top ${social.icon}" href="${social.href}" title="${social.title}" target="_blank" rel="noopener noreferrer">
         <span class="fa fa-${social.icon}"></span>
       </a>
     `;
@@ -358,15 +366,23 @@ document.addEventListener("DOMContentLoaded", function () {
     ulSocial.className = "dt-sc-social-icons";
 
     const footerSocials = [
-        { name: "facebook", img: "./img/facebook.png" },
-        { name: "instagram", img: "./img/instagram.png" }
+      {
+        name: "facebook",
+        img: "./img/facebook.png",
+        href: "https://www.facebook.com/colegiosanjuanmariavianney"
+      },
+      {
+        name: "instagram",
+        img: "./img/instagram.png",
+        href: "https://www.instagram.com/explore/"
+      }
     ];
 
     footerSocials.forEach(social => {
         const li = document.createElement("li");
         li.className = social.name;
         li.innerHTML = `
-        <a href="#" target="_blank" title="${social.name}">
+        <a href="${social.href}" target="_blank" rel="noopener noreferrer" title="${social.name}">
             <img src="${social.img}" alt="${social.name}" />
         </a>
         `;

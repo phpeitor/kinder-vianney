@@ -10,6 +10,7 @@ $fechaActual = date("d/m/Y H:i:s");
 
 $contentType = $_SERVER["CONTENT_TYPE"] ?? "";
 $isJsonRequest = stripos($contentType, "application/json") !== false;
+$isAjaxRequest = ($_SERVER["HTTP_X_REQUESTED_WITH"] ?? "") === "XMLHttpRequest";
 
 $data = [];
 if ($isJsonRequest) {
@@ -53,8 +54,26 @@ foreach ($requiredFields as $fieldName => $fieldValue) {
 if (!empty($missingFields)) {
   $message = "Faltan campos obligatorios: " . implode(", ", $missingFields);
 
-  if ($isJsonRequest) {
+  if ($isJsonRequest || $isAjaxRequest) {
     header("Content-Type: application/json");
+    http_response_code(400);
+    echo json_encode([
+      "ok" => false,
+      "message" => $message,
+    ]);
+  } else {
+    header("Content-Type: text/html; charset=UTF-8");
+    echo "<h2>Error</h2><p>$message</p><p><a href='../libro-reclamaciones.html'>Volver al formulario</a></p>";
+  }
+  exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $message = "El correo electronico ingresado no es valido.";
+
+  if ($isJsonRequest || $isAjaxRequest) {
+    header("Content-Type: application/json");
+    http_response_code(400);
     echo json_encode([
       "ok" => false,
       "message" => $message,
@@ -93,6 +112,7 @@ try {
     $mail->setFrom(env("MAIL_FROM_EMAIL"), env("MAIL_FROM_NAME"));
     $mail->addAddress(env("MAIL_TO"));
     $mail->addAddress(env("MAIL_FROM_EMAIL"));
+    $mail->addAddress($email, "$nombres $apellidos");
     $mail->addReplyTo($email, "$nombres $apellidos");
     
     $headPath = __DIR__ . "/../img/head.png";
@@ -137,20 +157,22 @@ try {
     ";
 
     $mail->send();
-  if ($isJsonRequest) {
+  if ($isJsonRequest || $isAjaxRequest) {
     header("Content-Type: application/json");
     echo json_encode([
       "ok" => true,
-      "message" => "Correo enviado correctamente"
+      "message" => "Correo enviado correctamente",
+      "redirect" => "index.html"
     ]);
   } else {
-    header("Content-Type: text/html; charset=UTF-8");
-    echo "<h2>Mensaje enviado</h2><p>Tu reclamo fue enviado correctamente.</p><p><a href='../libro-reclamaciones.html'>Enviar otro reclamo</a></p>";
+    header("Location: ../index.html");
+    exit;
   }
 
 } catch (Exception $e) {
-  if ($isJsonRequest) {
+  if ($isJsonRequest || $isAjaxRequest) {
     header("Content-Type: application/json");
+    http_response_code(500);
     echo json_encode([
       "ok" => false,
       "message" => "Error enviando correo",
