@@ -207,9 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const socialIcons = [
     { icon: "facebook", title: "Facebook" },
-    { icon: "dribbble", title: "Dribbble" },
-    { icon: "flickr", title: "Flickr" },
-    { icon: "technorati", title: "Technorati" },
+    { icon: "instagram", title: "Instagram" },
   ];
 
   // =========================
@@ -257,10 +255,14 @@ document.addEventListener("DOMContentLoaded", function () {
   topRight.innerHTML = `
     <p class="dt-sc-contact-info">
       <span class="fa fa-user"></span>
-      <a href="mailto:contato@institucioneducativavianney.com">contato@institucioneducativavianney.com</a>
+      <a href="mailto:info@institucioneducativavianney.com">info@institucioneducativavianney.com</a>
     </p>
     <p class="dt-sc-contact-info">
-      <span class="fa fa-phone"></span>942890820
+      <span class="fa fa-map"></span>
+      Calle Los Jazmines 206 Urb. Federico Villarreal, Chiclayo
+    </p>
+    <p class="dt-sc-contact-info">
+      <span class="fa fa-phone"></span>920 696 649
     </p>
   `;
 
@@ -357,9 +359,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const footerSocials = [
         { name: "facebook", img: "./img/facebook.png" },
-        { name: "dribbble", img: "./img/dribbble.png" },
-        { name: "flickr", img: "./img/flickr.png" },
-        { name: "technorati", img: "./img/technorati.png" }
+        { name: "instagram", img: "./img/instagram.png" }
     ];
 
     footerSocials.forEach(social => {

@@ -401,7 +401,7 @@ footer .dt-sc-social-icons li{margin-bottom:0px;}
 
 .dt-sc-social-icons li.digg a, footer .footer-links .dt-sc-social-icons li.digg a:hover{background:#1a5891;}
 
-.dt-sc-social-icons li.dribbble a, footer .footer-links .dt-sc-social-icons li.dribbble a:hover{background:#f974a4;}
+.dt-sc-social-icons li.instagram a, footer .footer-links .dt-sc-social-icons li.instagram a:hover{background:#f974a4;}
 
 .dt-sc-social-icons li.facebook a, footer .footer-links .dt-sc-social-icons li.facebook:hover a{background:#3c5b9b;}
 
@@ -946,6 +946,8 @@ ul.dt-sc-fancy-list.chocolate li:before, ol.dt-sc-fancy-list.chocolate li{color:
 ul.dt-sc-fancy-list.orange li:before, ol.dt-sc-fancy-list.orange li{color:#ea9d5f;}
 
 ul.dt-sc-fancy-list.aqua li:before, ol.dt-sc-fancy-list.aqua li{color:#4ecac2;}
+
+ul.dt-sc-fancy-list.white li:before, ol.dt-sc-fancy-list.white li{color:#ffffff;}
 
 ul.dt-sc-fancy-list.teal li:before, ol.dt-sc-fancy-list.teal li{color:#5f8789;}
 
