@@ -55,23 +55,23 @@
                   <div class="container"><div class="column dt-sc-two-third   first">
                     <div role="form" class="wpcf7" id="wpcf7-f106-p312-o1" lang="en-US" dir="ltr">
                       <div class="screen-reader-response"></div>
-                        <form method="post" class="wpcf7-form demo" novalidate="novalidate">
+                        <form id="form-reclamaciones" method="post" action="config/envio_correo.php" class="wpcf7-form demo" novalidate>
                           <h2>Libro de Reclamaciones</h2>
                           <p>
                             <span class="wpcf7-form-control-wrap documento">
                               <input type="number"
-                                name="documento" id="documento" value="" size="40" 
+                                name="documento" id="documento" value="" size="40" min="12345678"
                                 class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required"
-                                aria-required="true" aria-invalid="false" placeholder="Documento">
+                                aria-required="true" aria-invalid="false" placeholder="Documento" required>
                              </span> 
                           </p>
 
                           <p class="column dt-sc-one-third first">
                             <span class="wpcf7-form-control-wrap apellidos">
-                              <input type="text" 
+                                <input type="text" 
                                   name="apellidos" id="apellidos" value="" size="40"
                                   class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                  aria-required="true" aria-invalid="false" placeholder="Apellidos">
+                                  aria-required="true" aria-invalid="false" placeholder="Apellidos" required>
                             </span> 
                           </p>
 
@@ -80,7 +80,7 @@
                               <input type="text"
                                 name="nombres" id="nombres" value="" size="40" 
                                 class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-                                placeholder="Nombres">
+                                placeholder="Nombres" required>
                             </span> 
                           </p>
 
@@ -90,7 +90,7 @@
                               <input type="tel"
                                 name="telefono" id="telefono"
                                 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                aria-required="true" placeholder="Teléfono">
+                                aria-required="true" placeholder="Teléfono" required>
                             </span>
                           </p>
 
@@ -100,7 +100,7 @@
                               <input type="email"
                                 name="email" id="email"
                                 class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required"
-                                aria-required="true" placeholder="Correo electrónico">
+                                aria-required="true" placeholder="Correo electrónico" required>
                             </span>
                           </p>
 
@@ -109,7 +109,7 @@
                             <span class="wpcf7-form-control-wrap tipo">
                               <select name="tipo" id="tipo"
                                 class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
-                                aria-required="true">
+                                aria-required="true" required>
                                 <option value="">Tipo</option>
                                 <option value="producto">Producto</option>
                                 <option value="servicio">Servicio</option>
@@ -122,7 +122,7 @@
                             <span class="wpcf7-form-control-wrap motivo">
                               <select name="motivo" id="motivo"
                                 class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
-                                aria-required="true">
+                                aria-required="true" required>
                                 <option value="">Motivo</option>
                                 <option value="queja">Queja</option>
                                 <option value="reclamo">Reclamo</option>
@@ -133,13 +133,13 @@
                           <p> 
                             <span class="wpcf7-form-control-wrap mensaje">
                               <textarea name="mensaje" id="mensaje" cols="40" rows="10"
-                                class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Detalla tu mensaje"></textarea>
+                                class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Detalla tu mensaje" maxlength="500" required></textarea>
                             </span> 
                           </p>
                           <p> 
                             <span class="wpcf7-form-control-wrap pedido">
                               <textarea name="pedido" id="pedido" cols="40" rows="10"
-                                class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Detalla tu pedido"></textarea>
+                                class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Detalla tu pedido" maxlength="500" required></textarea>
                             </span> 
                           </p>
 
@@ -152,17 +152,15 @@
                     <div class="column dt-sc-one-third"><h2>&nbsp;Contacto</h2>
                         <p class="dt-sc-contact-info"><span class="fa fa-map-marker"></span>Calle Los Jazmines 206 Urb. Federico Villarreal, Chiclayo</p>
                         <p class="dt-sc-contact-info"><span class="fa fa-mobile-phone"></span>920 696 649</p>
-                        <p class="dt-sc-contact-info"><span class="fa fa-envelope"></span><a
-                            href="mailto:contacto@institucioneducativavianney.com">contacto@institucioneducativavianney.com</a></p>
                         <p class="dt-sc-contact-info"><span class="fa fa-file"></span> RUC: 20141189850</p>
-                        <p style="font-size: 11px; text-align: justify;">
+                        <p style="font-size: 12px; text-align: justify;">
                           <label>En cumplimiento de lo dispuesto por la Ley N° 29733, Ley de Protección de Datos Personales, informamos al usuario que los datos personales que nos ha proporcionado serán utilizados y/o tratados por VIANNEY S.A para dar trámite al reclamo y/o queja presentada. Los datos personales serán almacenados en el Banco de Datos Personales denominado “Consultas, Reclamos y requerimientos” de titularidad de VIANNEY S.A inscrito en el registro de la Dirección de Protección de Datos Personales (Código de Registro: 7455). Asimismo, se informa al usuario que podrá ejercer su derecho de revocatoria y/o cualquier otro derecho previsto en la Ley N° 29733, tales como derechos de acceso, rectificación, cancelación y oposición (ARCO), enviando un correo electrónico a la siguiente dirección: privacidad@vianney.com.pe. Más información en nuestra Política de Privacidad.</label>
                         </p>
                         <p>
-                          <span class=" dt-sc-pullquote2 aligncenter" style="font-size: 11px;"><b>Reclamo:</b> Disconformidad relacionada al producto o servicio.<br/>
+                          <span class=" dt-sc-pullquote2 aligncenter" style="font-size: 12px;"><b>Reclamo:</b> Disconformidad relacionada al producto o servicio.<br/>
                           <b>Queja:</b> Disconformidad no relacionada a los productos o servicios. Malestar o descontento respecto a la atención al público.</span>
                         </p>
-                        <p style="font-size: 11px; text-align: justify;">
+                        <p style="font-size: 12px; text-align: justify;">
                           <label>VIANNEY S.A deberá dar respuesta al reclamo o queja en un plazo no mayor a 15 días hábiles, contados desde el siguiente día hábil de haberse presentado.</label>
                         </p>
 
@@ -205,5 +203,58 @@
     <script type="text/javascript" src="./js/jquery.bxslider.js?ver=4bc7e34cee88072655e34415f8630486" id="bx-script-js"></script>
     <script type="text/javascript" src="./js/toucheffects.js?ver=4bc7e34cee88072655e34415f8630486" id="toucheffects-script-js"></script>
     <script type="text/javascript" src="./js/custom.js?ver=4bc7e34cee88072655e34415f8630486" id="custom-script-js"></script>
+    <style>
+      #form-reclamaciones .input-error {
+        border: 1px solid #d32f2f !important;
+        box-shadow: 0 0 0 1px rgba(211, 47, 47, 0.2);
+      }
+    </style>
+    <script>
+      (function () {
+        var form = document.getElementById("form-reclamaciones");
+        if (!form) {
+          return;
+        }
+
+        var requiredFields = form.querySelectorAll("input[required], select[required], textarea[required]");
+
+        function markFieldState(field) {
+          if (!field.checkValidity()) {
+            field.classList.add("input-error");
+            return;
+          }
+          field.classList.remove("input-error");
+        }
+
+        requiredFields.forEach(function (field) {
+          field.addEventListener("blur", function () {
+            markFieldState(field);
+          });
+
+          field.addEventListener("input", function () {
+            markFieldState(field);
+          });
+
+          field.addEventListener("change", function () {
+            markFieldState(field);
+          });
+        });
+
+        form.addEventListener("submit", function (event) {
+          var isValid = true;
+
+          requiredFields.forEach(function (field) {
+            markFieldState(field);
+            if (!field.checkValidity()) {
+              isValid = false;
+            }
+          });
+
+          if (!isValid) {
+            event.preventDefault();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
