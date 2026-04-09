@@ -354,3 +354,8 @@ body .is-layout-grid {
     font-size: 1.5em;
     line-height: 1.6;
 }
+
+#form-reclamaciones .input-error {
+    border: 1px solid #d32f2f !important;
+    box-shadow: 0 0 0 1px rgba(211, 47, 47, 0.2);
+}
