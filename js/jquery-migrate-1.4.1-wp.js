@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * jQuery Migrate - v1.4.1 - 2016-05-19
  * Copyright jQuery Foundation and other contributors
  */
@@ -16,18 +16,14 @@ var warnedAbout = {};
 jQuery.migrateWarnings = [];
 
 // Set to true to prevent console output; migrateWarnings still maintained
-// jQuery.migrateMute = false;
+jQuery.migrateMute = true;
 
 // Show a message on the console so devs know we're active
-if ( window.console && window.console.log ) {
-	window.console.log( "JQMIGRATE: Migrate is installed" +
-		( jQuery.migrateMute ? "" : " with logging active" ) +
-		", version " + jQuery.migrateVersion );
-}
+if ( false ) {}
 
 // Set to false to disable traces that appear with warnings
 if ( jQuery.migrateTrace === undefined ) {
-	jQuery.migrateTrace = true;
+	jQuery.migrateTrace = false;
 }
 
 // Forget any warnings we've already given; public
@@ -52,12 +48,7 @@ function migrateWarn( msg) {
 	if ( ! warnedAbout[ msg ] ) {
 		warnedAbout[ msg ] = true;
 
-		if ( console && console.warn && !jQuery.migrateMute ) {
-			console.warn( "JQMIGRATE: " + msg );
-			if ( jQuery.migrateTrace && console.trace ) {
-				console.trace();
-			}
-		}
+		if ( console && console.warn && !jQuery.migrateMute ) {}
 	}
 }
 
@@ -761,3 +752,4 @@ if ( jQuery.Callbacks ) {
 }
 
 })( jQuery, window );
+

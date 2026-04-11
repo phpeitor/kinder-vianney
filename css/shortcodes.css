@@ -1718,19 +1718,19 @@ only screen and (min-devicepixel-ratio: 1.5),
 only screen and (min-resolution: 1.5dppx) {
 
 
-.dt-sc-hr{background:url(../images/splitter@2x.jpg) repeat-x;}
+.dt-sc-hr{background:url(../img/splitter@2x.jpg) repeat-x;}
 
-.dt-sc-hr-medium{background:url(../images/splitter-medium@2x.jpg) repeat-x;}
+.dt-sc-hr-medium{background:url(../img/splitter-medium@2x.jpg) repeat-x;}
 
-.dt-sc-hr-large{background:url(../images/splitter-large@2x.jpg) repeat-x;}
-
-
-.dt-sc-title:after{background-image:url(../images/title_bg@2x.png); background-size:100% 100%;}
-
-.dt-sc-title.white{background:url(../images/title_bg_white@2x.png) center bottom no-repeat; background-size:125px 13px;}
+.dt-sc-hr-large{background:url(../img/splitter-large@2x.jpg) repeat-x;}
 
 
-.dt-sc-sponsor-carousel-wrapper .carousel-arrows a{background:url(../images/sponsor-carousel-arrows@2x.png) no-repeat; background-size:28px 28px;}
+.dt-sc-title:after{background-image:url(../img/title_bg@2x.png); background-size:100% 100%;}
+
+.dt-sc-title.white{background:url(../img/title_bg_white@2x.png) center bottom no-repeat; background-size:125px 13px;}
+
+
+.dt-sc-sponsor-carousel-wrapper .carousel-arrows a{background:url(../img/sponsor-carousel-arrows@2x.png) no-repeat; background-size:28px 28px;}
 
 
 }

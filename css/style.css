@@ -2439,7 +2439,7 @@ ul.products li .product-details .float-left, ul.products li .product-details .fl
 
 .header-more-info #searchform { max-width: 250px; position: relative; }
 .header-more-info #searchform:before { content: "\f002"; position: absolute; font-family: FontAwesome; font-size: 14px; right: 15px; top: -4px; bottom: 0px; margin: auto; height: 22px; }
-.header-more-info #searchform p { border: none;  background: none; padding: 0px; margin: 0; text-transform: uppercase; font-size: 12px; -webkit-appearance: none; }
+.header-more-info #searchform p { border: none;  background: none; padding: 0px; margin: 0; text-transform: uppercase; font-size: 12px; }
 .header-more-info #searchform input[type="text"] { padding: 14px; }
 .header-more-info #searchform p:last-child { width: 45px; height: 42px; margin: 0px; padding: 0px; position: absolute; right: 0px; top: 0px; z-index: 1; cursor: pointer; background: none; text-indent: -9999px; }
 
