@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* Ajustes responsive puntuales para la portada */
-#main img {
+#main img:not(.ls-l):not(.ls-bg) {
   max-width: 100%;
   height: auto;
 }
@@ -13,12 +13,6 @@
 
 #primary .dt-sc-ico-content.type2 li {
   overflow-wrap: anywhere;
-}
-
-#portafolio .portfolio-thumb img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 footer .dt-sc-contact-info,
@@ -49,46 +43,24 @@ footer .dt-sc-contact-info a {
   }
 
   #layerslider_1 .ls-bg {
-    width: 100% !important;
+    width: auto !important;
+    min-width: 100% !important;
     height: 100% !important;
     object-fit: cover;
+    left: 50% !important;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
   }
 
-  #portafolio .portfolio-content {
-    width: 100% !important;
-    max-width: 420px;
-    height: auto !important;
+  #layerslider_1 .ls-slide .ls-l {
+    max-width: none !important;
+  }
+
+  #portafolio [class^="portfolio-content"] {
+    width: 260px !important;
+    height: 225px !important;
     margin: 0 auto 16px !important;
     float: none !important;
-    background-image: none !important;
-    overflow: visible !important;
-  }
-
-  #portafolio .front-portfolio {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-  }
-
-  #portafolio .portfolio-outer,
-  #portafolio .front-portfolio .portfolio-thumb {
-    position: static !important;
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-  }
-
-  #portafolio .image-overlay {
-    display: none !important;
   }
 
   .mailchimp-form input[type=email] {
