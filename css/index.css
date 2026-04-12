@@ -28,34 +28,6 @@ footer .dt-sc-contact-info a {
 }
 
 @media only screen and (max-width: 767px) {
-  #layerslider_1 {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: clamp(260px, 56vw, 420px) !important;
-    overflow: hidden;
-  }
-
-  #layerslider_1 .ls-inner,
-  #layerslider_1 .ls-layers {
-    width: 100% !important;
-    height: 100% !important;
-    left: 0 !important;
-  }
-
-  #layerslider_1 .ls-bg {
-    width: auto !important;
-    min-width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-    left: 50% !important;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-  }
-
-  #layerslider_1 .ls-slide .ls-l {
-    max-width: none !important;
-  }
-
   #portafolio [class^="portfolio-content"] {
     width: 260px !important;
     height: 225px !important;
