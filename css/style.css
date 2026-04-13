@@ -2329,8 +2329,6 @@ header ul.dt-sc-social-icons li a.technorati:hover span:before{background:url(..
 
 #main-menu ul li.menu-item-simple-parent ul li a:before, .megamenu-child-container ul.sub-menu > li > ul li a:before, .megamenu-child-container .widget ul li a:before{background:url(../img/flower@2x.png) no-repeat; background-size:cover;}
 
-
-
 .fullwidth-background-wrapper{background-size:cover;}
 
 .portfolio-content{background-image:url(../img/hexagon@2x.png); background-size:contain;}
@@ -2360,7 +2358,6 @@ footer .footer-links p{background-image:url(../img/footer_arrow@2x.png); backgro
 #layerslider_2.ls-v5 .ls-nav-prev{background-image:url(../img/about-slider-prev@2x.png); background-size:cover;}
 
 #layerslider_2.ls-v5 .ls-nav-next{background-image:url(../img/about-slider-next@2x.png); background-size:cover;}
-	
 }
 
 .inner-wrapper{position:relative;}
