@@ -21,6 +21,17 @@ Sitio web institucional para I.E.P San Juan Maria Vianney con portada responsive
 - Se corrigio el alto desktop del slider a `610px` para evitar cortes en capas inferiores como `chalk-effect.png` y `name.png`.
 - Se agrego recarga automatica al cruzar el breakpoint mobile/desktop para evitar estados inconsistentes al probar en DevTools.
 
+## Documentacion del proyecto
+
+- `ARQUITECTURA.md`: estructura del proyecto y archivos clave.
+- `GUIA_DESARROLLO.md`: flujo recomendado para trabajar cambios.
+- `REGLAS_FRONTEND.md`: reglas frontend y criterios de implementacion.
+- `DECISIONES_TECNICAS.md`: decisiones importantes y motivos.
+- `VALIDACION_VISUAL.md`: checklist visual para desktop, mobile y formularios.
+- `ESTRUCTURA_ASSETS.md`: reglas para imagenes, CSS, JS y cache.
+- `FORMULARIOS.md`: flujo y configuracion del Libro de Reclamaciones.
+- `CHANGELOG.md`: historial de cambios relevantes.
+
 ## Requisitos
 
 - PHP 8.0 o superior (recomendado)
