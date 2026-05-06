@@ -408,7 +408,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       lsjQuery("#layerslider_1").layerSlider({
         sliderVersion: "",
-        responsiveUnder: 1170,
+        responsiveUnder: 1920,
         layersContainer: 1170,
         hideUnder: 0,
         hideOver: 100000,
