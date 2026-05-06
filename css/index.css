@@ -10,15 +10,105 @@
 #layerslider_1 {
   width: 100% !important;
   max-width: 1920px;
-  aspect-ratio: 1920 / 610;
-  height: clamp(110px, 31.7708vw, 610px) !important;
+  height: 610px !important;
   min-height: 0;
 }
 
-#layerslider_1 .ls-bg {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
+#layerslider_1 .ls-slide {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#layerslider_1 .slide-black-board {
+  background-image: url('../img/black-board.jpg');
+}
+
+#layerslider_1 .slide-bg3 {
+  background-image: url('../img/bg3.jpg');
+}
+
+#layerslider_1 .slide-bg2 {
+  background-image: url('../img/bg2.jpg');
+}
+
+@keyframes mobileStaticSlide {
+  0%, 30% {
+    opacity: 1;
+  }
+
+  33%, 97% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobileStaticBg {
+  0% {
+    filter: brightness(0.85);
+    opacity: 1;
+  }
+
+  8%, 100% {
+    filter: brightness(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mobileLayerFromLeft {
+  0%, 5% {
+    filter: blur(2px);
+    translate: -48px 0;
+  }
+
+  12%, 100% {
+    filter: blur(0);
+    translate: 0 0;
+  }
+}
+
+@keyframes mobileLayerFromRight {
+  0%, 5% {
+    filter: blur(2px);
+    translate: 48px 0;
+  }
+
+  12%, 100% {
+    filter: blur(0);
+    translate: 0 0;
+  }
+}
+
+@keyframes mobileLayerFromBottom {
+  0%, 5% {
+    filter: blur(2px);
+    translate: 0 52px;
+  }
+
+  12%, 100% {
+    filter: blur(0);
+    translate: 0 0;
+  }
+}
+
+@keyframes mobileLayerPop {
+  0%, 5% {
+    filter: blur(1px);
+    scale: 0.72;
+  }
+
+  10% {
+    scale: 1.06;
+  }
+
+  14%, 100% {
+    filter: blur(0);
+    opacity: 1;
+    scale: 1;
+  }
 }
 
 #main img:not(.ls-l):not(.ls-bg) {
@@ -53,7 +143,15 @@ footer .dt-sc-contact-info a {
   }
 
   #layerslider_1 {
-    height: clamp(110px, 31.7708vw, 244px) !important;
+    background-image: url('../img/black-board.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: clamp(180px, 52.14vw, 300px) !important;
+  }
+
+  #layerslider_1 .ls-slide {
+    background-size: 100% 100%;
   }
 
   #layerslider_1 .ls-inner,
@@ -80,9 +178,119 @@ footer .dt-sc-contact-info a {
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .mobile-static-slider #layerslider_1 {
+    height: clamp(170px, 52.14vw, 300px) !important;
+    position: relative;
+    visibility: visible !important;
+  }
+
+  .mobile-static-slider #layerslider_1 .ls-slide {
+    animation: mobileStaticSlide 21s infinite;
+    height: 610px !important;
+    left: 0 !important;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute !important;
+    top: 0 !important;
+    transform: scale(var(--mobile-slider-scale, 0.3333));
+    transform-origin: top left;
+    visibility: visible !important;
+    width: 1170px !important;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-black-board {
+    animation-delay: 0s;
+    --mobile-slide-delay: 0s;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-bg3 {
+    animation-delay: 7s;
+    --mobile-slide-delay: 7s;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-bg2 {
+    animation-delay: 14s;
+    --mobile-slide-delay: 14s;
+  }
+
+  .mobile-static-slider #layerslider_1 .ls-bg {
+    animation: mobileStaticBg 21s infinite both;
+    height: 610px !important;
+    left: 0 !important;
+    max-width: none !important;
+    object-fit: cover;
+    position: absolute !important;
+    top: 0 !important;
+    width: 1170px !important;
+  }
+
+  .mobile-static-slider #layerslider_1 .ls-l {
+    animation: mobileLayerFromBottom 21s infinite both;
+    display: block !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    visibility: visible !important;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-bg,
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l {
+    animation-delay: 0s;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-bg3 .ls-bg,
+  .mobile-static-slider #layerslider_1 .slide-bg3 .ls-l {
+    animation-delay: 7s;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-bg2 .ls-bg,
+  .mobile-static-slider #layerslider_1 .slide-bg2 .ls-l {
+    animation-delay: 14s;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(2),
+  .mobile-static-slider #layerslider_1 .slide-bg3 .ls-l:nth-child(n + 10) {
+    animation-name: mobileLayerFromRight;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(5),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(6),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(7),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(8),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(10) {
+    animation-name: mobileLayerFromLeft;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-bg3 .ls-l:nth-child(3),
+  .mobile-static-slider #layerslider_1 .slide-bg3 .ls-l:nth-child(9) {
+    animation-name: mobileLayerFromBottom;
+  }
+
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(3),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(4),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(9),
+  .mobile-static-slider #layerslider_1 .slide-black-board .ls-l:nth-child(n + 11),
+  .mobile-static-slider #layerslider_1 .slide-bg3 .ls-l:nth-child(n + 2):nth-child(-n + 8),
+  .mobile-static-slider #layerslider_1 .slide-bg2 .ls-l {
+    animation-name: mobileLayerPop;
+  }
+
+  .mobile-static-slider #layerslider_1 .ls-l {
+    animation-delay: calc(var(--mobile-slide-delay, 0s) + 0.15s);
+  }
+
+  .mobile-static-slider #layerslider_1 .ls-l:nth-child(3n) {
+    animation-delay: calc(var(--mobile-slide-delay, 0s) + 0.45s);
+  }
+
+  .mobile-static-slider #layerslider_1 .ls-l:nth-child(3n + 1) {
+    animation-delay: calc(var(--mobile-slide-delay, 0s) + 0.75s);
+  }
+}
+
 @media only screen and (max-width: 480px) {
   #layerslider_1 {
-    height: clamp(100px, 31.7708vw, 153px) !important;
+    height: clamp(170px, 52.14vw, 210px) !important;
   }
 
   #layerslider_1 .ls-inner,

@@ -6,9 +6,20 @@
   <img src="https://cdn.dribbble.com/userupload/23784078/file/original-557570cce8dd3d0c1fe73eb5dd68d241.jpg" alt="Instagram" width="600">
 </a>
 
-Sitio web institucional con formulario de Libro de Reclamaciones y envio de correo via PHPMailer.
+Sitio web institucional para I.E.P San Juan Maria Vianney con portada responsive, slider visual, secciones informativas, portafolio, datos de contacto y formulario de Libro de Reclamaciones con envio de correo via PHPMailer.
 
 `Hello Everyone 🙌`
+
+## Mejoras recientes
+
+- Slider principal optimizado para desktop y mobile.
+- Desktop mantiene `LayerSlider` activo para conservar efectos originales.
+- Mobile usa un modo estatico controlado por CSS/JS para evitar fallos del plugin en responsive.
+- Fondos del slider (`black-board.jpg`, `bg2.jpg`, `bg3.jpg`) se muestran correctamente en mobile.
+- Elementos superpuestos del slider se escalan junto con el fondo en mobile.
+- Se agregaron efectos mobile ligeros por tipo de capa: entrada lateral, entrada inferior, pop y brillo de fondo.
+- Se corrigio el alto desktop del slider a `610px` para evitar cortes en capas inferiores como `chalk-effect.png` y `name.png`.
+- Se agrego recarga automatica al cruzar el breakpoint mobile/desktop para evitar estados inconsistentes al probar en DevTools.
 
 ## Requisitos
 

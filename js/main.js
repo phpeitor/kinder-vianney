@@ -401,6 +401,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var lsjQuery = jQuery;
   lsjQuery(document).ready(function () {
+    var mobileSliderQuery = window.matchMedia && window.matchMedia("(max-width: 767px)");
+
+    if (mobileSliderQuery) {
+      if (mobileSliderQuery.addEventListener) {
+        mobileSliderQuery.addEventListener("change", function () {
+          window.location.reload();
+        });
+      } else if (mobileSliderQuery.addListener) {
+        mobileSliderQuery.addListener(function () {
+          window.location.reload();
+        });
+      }
+    }
+
+    if (mobileSliderQuery && mobileSliderQuery.matches) {
+      var slider = lsjQuery("#layerslider_1");
+      var sliderWidth = slider.parent().width() || lsjQuery(window).width();
+
+      slider.css("--mobile-slider-scale", sliderWidth / 1170);
+      lsjQuery("body").addClass("mobile-static-slider");
+      return;
+    }
+
     if (typeof lsjQuery.fn.layerSlider == "undefined") {
       if (window._layerSlider && window._layerSlider.showNotice) {
         window._layerSlider.showNotice("layerslider_1", "jquery");
