@@ -11,11 +11,13 @@
   width: 100% !important;
   max-width: 1920px;
   aspect-ratio: 1920 / 610;
-  height: auto !important;
-  min-height: 170px;
+  height: clamp(110px, 31.7708vw, 610px) !important;
+  min-height: 0;
 }
 
 #layerslider_1 .ls-bg {
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
 }
 
@@ -51,7 +53,7 @@ footer .dt-sc-contact-info a {
   }
 
   #layerslider_1 {
-    min-height: 210px;
+    height: clamp(110px, 31.7708vw, 244px) !important;
   }
 
   #layerslider_1 .ls-inner,
@@ -80,7 +82,7 @@ footer .dt-sc-contact-info a {
 
 @media only screen and (max-width: 480px) {
   #layerslider_1 {
-    min-height: 190px;
+    height: clamp(100px, 31.7708vw, 153px) !important;
   }
 
   #layerslider_1 .ls-inner,
