@@ -5,6 +5,94 @@
   }
 
   var requiredFields = form.querySelectorAll("input[required], select[required], textarea[required]");
+  var submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
+  var captchaContainer = document.getElementById("turnstile-captcha");
+  var captchaMessage = document.getElementById("captcha-message");
+  var captchaWidgetId = null;
+  var captchaVerified = !captchaContainer;
+
+  if (submitButton && captchaContainer) {
+    submitButton.disabled = true;
+  }
+
+  function setCaptchaMessage(message) {
+    if (captchaMessage) {
+      captchaMessage.textContent = message || "";
+    }
+  }
+
+  function resetCaptcha() {
+    captchaVerified = !captchaContainer;
+
+    if (captchaWidgetId !== null && window.turnstile) {
+      window.turnstile.reset(captchaWidgetId);
+    }
+
+    if (submitButton && captchaContainer) {
+      submitButton.disabled = true;
+    }
+  }
+
+  function loadTurnstile(siteKey) {
+    window.onTurnstileLoaded = function () {
+      captchaWidgetId = window.turnstile.render(captchaContainer, {
+        sitekey: siteKey,
+        action: "libro_reclamaciones",
+        callback: function () {
+          captchaVerified = true;
+          setCaptchaMessage("");
+          if (submitButton) {
+            submitButton.disabled = false;
+          }
+        },
+        "expired-callback": function () {
+          captchaVerified = false;
+          setCaptchaMessage("La verificacion expiro. Vuelve a completar el captcha.");
+          if (submitButton) {
+            submitButton.disabled = true;
+          }
+        },
+        "error-callback": function () {
+          captchaVerified = false;
+          setCaptchaMessage("No se pudo validar el captcha. Intenta nuevamente.");
+          if (submitButton) {
+            submitButton.disabled = true;
+          }
+        }
+      });
+    };
+
+    var script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoaded&render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.onerror = function () {
+      setCaptchaMessage("No se pudo cargar el captcha. Revisa tu conexion e intenta nuevamente.");
+    };
+    document.head.appendChild(script);
+  }
+
+  if (captchaContainer) {
+    fetch("config/captcha_config.php", {
+      headers: {
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (result) {
+        if (!result || !result.ok || !result.siteKey) {
+          setCaptchaMessage((result && result.message) ? result.message : "Captcha no disponible.");
+          return;
+        }
+
+        loadTurnstile(result.siteKey);
+      })
+      .catch(function () {
+        setCaptchaMessage("Captcha no disponible. Intenta recargar la pagina.");
+      });
+  }
 
   function markFieldState(field) {
     if (!field.checkValidity()) {
@@ -32,7 +120,6 @@
     event.preventDefault();
 
     var isValid = true;
-    var submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
     var loader = form.querySelector(".ajax-loader");
 
     requiredFields.forEach(function (field) {
@@ -43,6 +130,11 @@
     });
 
     if (!isValid) {
+      return;
+    }
+
+    if (!captchaVerified) {
+      setCaptchaMessage("Completa el captcha antes de enviar.");
       return;
     }
 
@@ -74,6 +166,7 @@
         if (submitButton) {
           submitButton.disabled = false;
         }
+        resetCaptcha();
         if (loader) {
           loader.style.display = "none";
           loader.innerHTML = "";
@@ -84,6 +177,7 @@
         if (submitButton) {
           submitButton.disabled = false;
         }
+        resetCaptcha();
         if (loader) {
           loader.style.display = "none";
           loader.innerHTML = "";

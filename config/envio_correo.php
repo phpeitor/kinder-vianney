@@ -12,6 +12,21 @@ $contentType = $_SERVER["CONTENT_TYPE"] ?? "";
 $isJsonRequest = stripos($contentType, "application/json") !== false;
 $isAjaxRequest = ($_SERVER["HTTP_X_REQUESTED_WITH"] ?? "") === "XMLHttpRequest";
 
+$respondError = function ($message, $statusCode = 400) use ($isJsonRequest, $isAjaxRequest) {
+  if ($isJsonRequest || $isAjaxRequest) {
+    header("Content-Type: application/json");
+    http_response_code($statusCode);
+    echo json_encode([
+      "ok" => false,
+      "message" => $message,
+    ]);
+  } else {
+    header("Content-Type: text/html; charset=UTF-8");
+    echo "<h2>Error</h2><p>" . htmlspecialchars($message, ENT_QUOTES, "UTF-8") . "</p><p><a href='../libro-reclamaciones.html'>Volver al formulario</a></p>";
+  }
+  exit;
+};
+
 $data = [];
 if ($isJsonRequest) {
   $data = json_decode(file_get_contents("php://input"), true);
@@ -31,6 +46,7 @@ $tipo = trim($data["tipo"] ?? "");
 $motivo = trim($data["motivo"] ?? "");
 $mensaje = trim($data["mensaje"] ?? "");
 $pedido = trim($data["pedido"] ?? "");
+$turnstileToken = trim($data["cf-turnstile-response"] ?? "");
 
 $requiredFields = [
   "documento" => $documento,
@@ -53,36 +69,56 @@ foreach ($requiredFields as $fieldName => $fieldValue) {
 
 if (!empty($missingFields)) {
   $message = "Faltan campos obligatorios: " . implode(", ", $missingFields);
-
-  if ($isJsonRequest || $isAjaxRequest) {
-    header("Content-Type: application/json");
-    http_response_code(400);
-    echo json_encode([
-      "ok" => false,
-      "message" => $message,
-    ]);
-  } else {
-    header("Content-Type: text/html; charset=UTF-8");
-    echo "<h2>Error</h2><p>$message</p><p><a href='../libro-reclamaciones.html'>Volver al formulario</a></p>";
-  }
-  exit;
+  $respondError($message);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   $message = "El correo electronico ingresado no es valido.";
 
-  if ($isJsonRequest || $isAjaxRequest) {
-    header("Content-Type: application/json");
-    http_response_code(400);
-    echo json_encode([
-      "ok" => false,
-      "message" => $message,
-    ]);
-  } else {
-    header("Content-Type: text/html; charset=UTF-8");
-    echo "<h2>Error</h2><p>$message</p><p><a href='../libro-reclamaciones.html'>Volver al formulario</a></p>";
-  }
-  exit;
+  $respondError($message);
+}
+
+if ($turnstileToken === "") {
+  $respondError("Completa el captcha antes de enviar.");
+}
+
+$turnstileSecret = env("TURNSTILE_SECRET_KEY", "");
+if ($turnstileSecret === "") {
+  $respondError("Captcha no configurado.", 500);
+}
+
+$turnstileResponse = null;
+$turnstilePostData = http_build_query([
+  "secret" => $turnstileSecret,
+  "response" => $turnstileToken,
+  "remoteip" => $_SERVER["REMOTE_ADDR"] ?? "",
+]);
+
+$turnstileContext = stream_context_create([
+  "http" => [
+    "method" => "POST",
+    "header" => "Content-Type: application/x-www-form-urlencoded\r\n",
+    "content" => $turnstilePostData,
+    "timeout" => 8,
+  ],
+]);
+
+$turnstileRawResponse = @file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, $turnstileContext);
+if ($turnstileRawResponse !== false) {
+  $turnstileResponse = json_decode($turnstileRawResponse, true);
+}
+
+if (!is_array($turnstileResponse) || empty($turnstileResponse["success"])) {
+  $respondError("No se pudo validar el captcha. Intenta nuevamente.");
+}
+
+if (($turnstileResponse["action"] ?? "") !== "libro_reclamaciones") {
+  $respondError("Captcha invalido. Intenta nuevamente.");
+}
+
+$expectedTurnstileHostname = env("TURNSTILE_HOSTNAME", "");
+if ($expectedTurnstileHostname !== "" && ($turnstileResponse["hostname"] ?? "") !== $expectedTurnstileHostname) {
+  $respondError("Captcha invalido para este sitio.");
 }
 
 $emailEscaped = htmlspecialchars($email, ENT_QUOTES, "UTF-8");
