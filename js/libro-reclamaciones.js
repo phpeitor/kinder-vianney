@@ -10,6 +10,34 @@
   var captchaMessage = document.getElementById("captcha-message");
   var captchaWidgetId = null;
   var captchaVerified = !captchaContainer;
+  var isSubmitting = false;
+
+  function showMessage(type, message, onclose) {
+    if (window.alertify) {
+      window.alertify.alert(type === "success" ? "Mensaje enviado" : "Aviso", message, onclose);
+      return;
+    }
+
+    window.alert(message);
+    if (typeof onclose === "function") {
+      onclose();
+    }
+  }
+
+  function setSubmitLoading(isLoading) {
+    var submitLabel = submitButton ? submitButton.querySelector(".submit-label") : null;
+
+    isSubmitting = isLoading;
+
+    if (submitButton) {
+      submitButton.disabled = isLoading || (!!captchaContainer && !captchaVerified);
+      submitButton.classList.toggle("is-loading", isLoading);
+    }
+
+    if (submitLabel) {
+      submitLabel.textContent = isLoading ? "Enviando..." : "Enviar";
+    }
+  }
 
   if (submitButton && captchaContainer) {
     submitButton.disabled = true;
@@ -119,9 +147,11 @@
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var isValid = true;
-    var loader = form.querySelector(".ajax-loader");
+    if (isSubmitting) {
+      return;
+    }
 
+    var isValid = true;
     requiredFields.forEach(function (field) {
       markFieldState(field);
       if (!field.checkValidity()) {
@@ -138,14 +168,7 @@
       return;
     }
 
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
-
-    if (loader) {
-      loader.innerHTML = '<img src="./img/ajax-loader.gif" alt="Enviando" style="vertical-align:middle; margin-left:8px;">';
-      loader.style.display = "inline-block";
-    }
+    setSubmitLoading(true);
 
     fetch(form.action, {
       method: "POST",
@@ -159,30 +182,20 @@
       })
       .then(function (result) {
         if (result && result.ok) {
-          window.location.href = "index.html";
+          showMessage("success", result.message || "Correo enviado correctamente.", function () {
+            window.location.href = result.redirect || "index.html";
+          });
           return;
         }
 
-        if (submitButton) {
-          submitButton.disabled = false;
-        }
         resetCaptcha();
-        if (loader) {
-          loader.style.display = "none";
-          loader.innerHTML = "";
-        }
-        alert((result && result.message) ? result.message : "No se pudo enviar el formulario.");
+        setSubmitLoading(false);
+        showMessage("error", (result && result.message) ? result.message : "No se pudo enviar el formulario.");
       })
       .catch(function () {
-        if (submitButton) {
-          submitButton.disabled = false;
-        }
         resetCaptcha();
-        if (loader) {
-          loader.style.display = "none";
-          loader.innerHTML = "";
-        }
-        alert("No se pudo enviar el formulario. Intenta nuevamente.");
+        setSubmitLoading(false);
+        showMessage("error", "No se pudo enviar el formulario. Intenta nuevamente.");
       });
   });
 })();

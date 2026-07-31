@@ -359,3 +359,23 @@ body .is-layout-grid {
     border: 1px solid #d32f2f !important;
     box-shadow: 0 0 0 1px rgba(211, 47, 47, 0.2);
 }
+
+#form-reclamaciones .submit-spinner {
+    display: none;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    border-top-color: #fff;
+    border-radius: 50%;
+    vertical-align: -2px;
+    animation: submit-spin 0.8s linear infinite;
+}
+
+#form-reclamaciones .wpcf7-submit.is-loading .submit-spinner {
+    display: inline-block;
+}
+
+@keyframes submit-spin {
+    to { transform: rotate(360deg); }
+}

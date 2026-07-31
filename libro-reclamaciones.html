@@ -33,6 +33,8 @@
     <link rel='stylesheet' id='responsive-css' href='./css/responsive.css?ver=4bc7e34cee88072655e34415f8630486' type='text/css' media='all' />
     <link rel='stylesheet' id='skin-css' href='./css/style2.css?ver=4bc7e34cee88072655e34415f8630486' type='text/css' media='all' />
     <link rel='stylesheet' id='mytheme-google-fonts-css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic%7CLato:300,400,700,300italic,400italic,700italic%7CBubblegum+Sans' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
     <script type="text/javascript" src="./js/jquery-1.12.4-wp.js?ver=1.12.4-wp" id="jquery-core-js"></script>
     <script type="text/javascript" src="./js/jquery-migrate-1.4.1-wp.js?ver=1.4.1-wp" id="jquery-migrate-js"></script>
     <script type="text/javascript" src="./js/greensock.js?ver=1.19.0" id="layerslider-greensock-js"></script>
@@ -151,7 +153,9 @@
                           </p>
 
                           <p>
-                            <input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span>
+                            <button type="submit" class="wpcf7-form-control wpcf7-submit">
+                              <span class="submit-spinner" aria-hidden="true"></span><span class="submit-label">Enviar</span>
+                            </button><span class="ajax-loader"></span>
                           </p>
                         </form>
                       </div>
@@ -210,6 +214,7 @@
     <script type="text/javascript" src="./js/jquery.bxslider.js?ver=4bc7e34cee88072655e34415f8630486" id="bx-script-js"></script>
     <script type="text/javascript" src="./js/toucheffects.js?ver=4bc7e34cee88072655e34415f8630486" id="toucheffects-script-js"></script>
     <script type="text/javascript" src="./js/custom.js?ver=4bc7e34cee88072655e34415f8630486" id="custom-script-js"></script>
-    <script type="text/javascript" src="./js/libro-reclamaciones.js?v=2" id="libro-reclamaciones-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+    <script type="text/javascript" src="./js/libro-reclamaciones.js?v=3" id="libro-reclamaciones-js"></script>
   </body>
 </html>

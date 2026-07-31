@@ -147,7 +147,6 @@ try {
 
     $mail->setFrom(env("MAIL_FROM_EMAIL"), env("MAIL_FROM_NAME"));
     $mail->addAddress(env("MAIL_TO"));
-    $mail->addAddress(env("MAIL_FROM_EMAIL"));
     $mail->addAddress($email, "$nombres $apellidos");
     $mail->addReplyTo($email, "$nombres $apellidos");
     
@@ -156,7 +155,7 @@ try {
     if (file_exists($headPath)) $mail->addEmbeddedImage($headPath, "head", "head.png");
 
     $mail->isHTML(true);
-    $mail->Subject = "Nuevo mensaje de Libro de Reclamaciones - $documentoEscaped";
+    $mail->Subject = "Nuevo mensaje de Libro de Reclamaciones - $nombres $apellidos";
 
     $mail->Body = "
     <div style='width:100%; background:#f5f7fa; padding:20px 0;'>
