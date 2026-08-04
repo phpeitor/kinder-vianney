@@ -198,11 +198,12 @@ var mytheme_urls = {
 // ===============================
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = [
-    { text: "Inicio", href: "index.html", class: "mustard current-menu-item" },
+    { text: "Inicio", href: "index.html", class: "mustard" },
     { text: "Portafolio", href: "index.html#portafolio", class: "red" },
     { text: "Staff", href: "index.html#staff", class: "green" },
     { text: "Eventos", href: "index.html#eventos", class: "pink" },
     { text: "Contacto", href: "index.html#contacto", class: "lavender" },
+    { text: "Libro Reclamaciones", href: "libro-reclamaciones.html", class: "blue" },
   ];
 
   const socialIcons = [
@@ -214,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       icon: "instagram",
       title: "Instagram",
-      href: "https://www.instagram.com/explore/",
+      href: "https://www.instagram.com/vianney_cix",
     },
   ];
 
@@ -263,11 +264,15 @@ document.addEventListener("DOMContentLoaded", function () {
   topRight.innerHTML = `
     <p class="dt-sc-contact-info">
       <span class="fa fa-user"></span>
-      <a href="mailto:info@institucioneducativavianney.com">info@institucioneducativavianney.com</a>
+      <a href="mailto:colegiovianney.cix@gmail.com">colegiovianney.cix@gmail.com</a>
     </p>
     <p class="dt-sc-contact-info">
+      <span class="fa fa-map-o"></span>
+      Calle Los Jazmines 206 Urb. Federico Villarreal
+    </p>
+     <p class="dt-sc-contact-info">
       <span class="fa fa-map-marker"></span>
-      Calle Los Jazmines 206 Urb. Federico Villarreal, Chiclayo
+      Chiclayo - Lambayeque
     </p>
     <p class="dt-sc-contact-info">
       <span class="fa fa-phone"></span>920 696 649
@@ -300,6 +305,57 @@ document.addEventListener("DOMContentLoaded", function () {
   ulMenu.id = "menu-main-menu";
   ulMenu.className = "menu";
 
+  const normalizePage = (pathname) => {
+    const page = pathname.split("/").pop();
+    return page || "index.html";
+  };
+
+  const currentPage = () => normalizePage(window.location.pathname);
+
+  const setActiveMenuItem = (activeHref) => {
+    ulMenu.querySelectorAll("li").forEach((li) => {
+      li.classList.remove("current-menu-item", "current_page_item");
+    });
+
+    const activeLink = ulMenu.querySelector(`a[href="${activeHref}"]`);
+    if (activeLink) {
+      activeLink.parentElement.classList.add("current-menu-item");
+    }
+  };
+
+  const updateActiveMenu = () => {
+    const page = currentPage();
+
+    if (page === "index.html" && window.location.hash) {
+      setActiveMenuItem(`index.html${window.location.hash}`);
+      return;
+    }
+
+    const activeItem = menuItems.find((item) => {
+      const itemUrl = new URL(item.href, window.location.href);
+      return normalizePage(itemUrl.pathname) === page && !itemUrl.hash;
+    });
+
+    setActiveMenuItem(activeItem ? activeItem.href : "index.html");
+  };
+
+  const updateActiveSectionOnScroll = () => {
+    if (currentPage() !== "index.html") return;
+
+    const sectionItems = menuItems.filter((item) => item.href.indexOf("#") !== -1);
+    let activeSection = "";
+
+    sectionItems.forEach((item) => {
+      const hash = item.href.split("#")[1];
+      const section = document.getElementById(hash);
+      if (section && section.getBoundingClientRect().top <= window.innerHeight * 0.35) {
+        activeSection = hash;
+      }
+    });
+
+    setActiveMenuItem(activeSection ? `index.html#${activeSection}` : "index.html");
+  };
+
   menuItems.forEach((item) => {
     const li = document.createElement("li");
     li.className = `${item.class} menu-item menu-item-depth-0 menu-item-simple-parent`;
@@ -311,6 +367,10 @@ document.addEventListener("DOMContentLoaded", function () {
     li.appendChild(a);
     ulMenu.appendChild(li);
   });
+
+  updateActiveMenu();
+  window.addEventListener("hashchange", updateActiveMenu);
+  window.addEventListener("scroll", updateActiveSectionOnScroll, { passive: true });
 
   nav.appendChild(toggle);
   nav.appendChild(ulMenu);
